@@ -25,7 +25,7 @@ namespace RedisAPI.Data
             // db.SetAdd("PlatformSet", serialModel);
             db.HashSet("hashplatform", new HashEntry[]
             {
-                new HashEntry(model.Id, serialModel)
+                new HashEntry(model.Id, serialModel) 
             });
         }
 
