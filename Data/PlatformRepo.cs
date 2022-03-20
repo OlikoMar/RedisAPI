@@ -27,7 +27,13 @@ namespace RedisAPI.Data
 
         public IEnumerable<Platform> GetAllPlatforms()
         {
-            throw new NotImplementedException();
+            var db = _connection.GetDatabase();
+
+            var set = db.SetMembers("PlatformSet");
+
+            if (set.Length > 0)
+            
+                return null;
         }
 
         public Platform GetPlatformById(string id)
