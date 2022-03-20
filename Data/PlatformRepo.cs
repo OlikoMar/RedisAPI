@@ -32,8 +32,11 @@ namespace RedisAPI.Data
             var set = db.SetMembers("PlatformSet");
 
             if (set.Length > 0)
-            
-                return null;
+            {
+                var obj = Array.ConvertAll(set, val => JsonSerializer.Deserialize<Platform>(val)).ToList();
+                return obj;
+            }
+            return null;
         }
 
         public Platform GetPlatformById(string id)
