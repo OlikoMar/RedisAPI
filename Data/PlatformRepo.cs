@@ -22,6 +22,7 @@ namespace RedisAPI.Data
             var serialModel = JsonSerializer.Serialize(model);
 
             db.StringSet(model.Id, serialModel);
+            db.SetAdd("PlatformSet", serialModel);
         }
 
         public IEnumerable<Platform> GetAllPlatforms()
